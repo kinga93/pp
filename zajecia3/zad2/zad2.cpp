@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <iomanip>
 using namespace std;
 
 int maksimum(int tab[], int rozm_tab) {
@@ -23,6 +23,15 @@ int minimum(int tab[],int rozm_tab) {
 
   return min;
 }
+
+double srednia(int tab[],int rozm_tab) {
+  int suma_liczb=0;
+  for(int i=0;i<rozm_tab;i++) {
+    suma_liczb+=tab[i];
+  }
+  return suma_liczb/(double)rozm_tab;
+}
+
 
 void bouble_sort(int tab[], int n) {   
     int k = 0;
@@ -56,27 +65,21 @@ int mediana(int tab[],int rozm_tab) {
   return tab[(int)(rozm_tab/2)];
 }
 
-
-int main() {
-  int rozm_tab;
-  cout<<"wprowadz rozmiar tablicy: ";
-  cin>>rozm_tab;
-
+int main(){
+  int rozm_tab=10;
   int tab[rozm_tab];
- 
-  for(int i=0;i<rozm_tab;i++) {
-    cout<<"wprowadz "<<i+1<<" liczbe: ";
+  for (int i=0;i<rozm_tab;i++){
+    cout<<"wprowadz "<<i+1<<" liczbe ";
     cin>>tab[i];
+  }
+  for(int i=9;i>=0;i--){
+    cout<<tab[i]<<endl;
   }
 
   cout<<"wartosc min: "<<minimum(tab,rozm_tab)<<endl;
   cout<<"wartosc max: "<<maksimum(tab,rozm_tab)<<endl;
+  cout<<"wartosc sredniej: "<<setprecision(2)<<srednia(tab,rozm_tab)<<endl;
   cout<<"wartosc mediany: "<<mediana(tab,rozm_tab)<<endl;
-  
+
   return 0;
 }
-
-
-
-
-
